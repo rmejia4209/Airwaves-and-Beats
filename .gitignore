@@ -1,0 +1,10 @@
+
+#IDE
+*.vscode/
+
+# Environment
+*node_modules/
+
+
+# Not Ready
+*README.md
