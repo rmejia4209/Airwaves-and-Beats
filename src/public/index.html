@@ -9,8 +9,30 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="audio-loader.js"></script>
   <div class="center">
-    <audio controls id="lofi-player"></audio>
+    <audio id="lofi-player"></audio>
     <audio id="air-traffic-control"></audio>
+    <div class="sidebar">
+      <div class="sidebar-volume">
+        <button id="settings">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M13 6.037c0-1.724-1.978-2.665-3.28-1.562L5.638 7.933H4c-1.105 0-2 .91-2 2.034v4.066c0 1.123.895 2.034 2 2.034h1.638l4.082 3.458c1.302 1.104 3.28.162 3.28-1.562V6.037Z"/>
+            <path fill-rule="evenodd" d="M14.786 7.658a.988.988 0 0 1 1.414-.014A6.135 6.135 0 0 1 18 12c0 1.662-.655 3.17-1.715 4.27a.989.989 0 0 1-1.414.014 1.029 1.029 0 0 1-.014-1.437A4.085 4.085 0 0 0 16 12a4.085 4.085 0 0 0-1.2-2.904 1.029 1.029 0 0 1-.014-1.438Z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M17.657 4.811a.988.988 0 0 1 1.414 0A10.224 10.224 0 0 1 22 12c0 2.807-1.12 5.35-2.929 7.189a.988.988 0 0 1-1.414 0 1.029 1.029 0 0 1 0-1.438A8.173 8.173 0 0 0 20 12a8.173 8.173 0 0 0-2.343-5.751 1.029 1.029 0 0 1 0-1.438Z" clip-rule="evenodd"/>
+          </svg>
+          <p>Settings</p>
+        </button>
+      </div>
+      <div>
+        <button id="settings">
+          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="48" height="48">
+            <path d="M 8.0820312 3.1132812 L 6.2714844 3.6601562 L 10.269531 10.636719 L 5.1757812 11.980469 L 3.3671875 10.460938 L 2 10.869141 L 4.5625 15.242188 L 20.755859 10.978516 A 1.5 1.5 0 0 0 20.761719 10.976562 A 1.5 1.5 0 0 0 22 9.5 A 1.5 1.5 0 0 0 20.5 8 A 1.5 1.5 0 0 0 20.113281 8.0507812 L 20.113281 8.0488281 L 14.882812 9.4257812 L 8.0820312 3.1132812 z M 3 18 L 3 20 L 21 20 L 21 18 L 3 18 z"/>
+          </svg>
+          <p>Airport</p>
+        </button>
+      </div>
+
+      
+    </div>
     <div class="playback-bttn-container">
       <button class="playback-bttn" id="play">
         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -23,10 +45,6 @@
         </svg>
       </button>
     </div>
-
-    <h1>Hello Again!</h1>
-    <p>This is served from a file</p>
-
   </div>
 </body>
 
