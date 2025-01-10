@@ -12,11 +12,11 @@ function initLofiAudio(queue) {
     loadSong(queue);
     lofiPlayer.play();
     if (queue.length < 2) {
-      console.log('Getting more songs');
+      console.log('Getting next album');
       queueAlbum(queue);
     }
-  })
-  
+    console.log(queue);
+  })  
 }
 
 
