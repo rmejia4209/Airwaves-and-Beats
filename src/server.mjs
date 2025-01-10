@@ -1,72 +1,44 @@
-import http from 'http';
-import fs from 'fs/promises';
-import foo from 'fs';
+import { port, publicPath, __dirname } from './config.mjs';
+import express from 'express';
 import path from 'path';
+import fs from 'fs/promises';
+import archiver from 'archiver';
 
-const __dirname = import.meta.dirname
-const port = 8080;
+const app = express();
+app.use(express.static(publicPath))
 
 
-const getPayloadInfo = (req) => {
-  let fp = null, encoding = null, contentType = null
-  switch (req.url) {
-    case '/style.css':
-      fp = 'style.css';
-      encoding = 'utf8'
-      contentType = 'text/css'
-      break;
-    case '/audio.mp3':
-      fp = 'audio.mp3';
-      contentType = 'audio/mp3'
-      break;
-    default:
-      fp = 'index.html';
-      encoding = 'utf8'
-      contentType = 'text/html'
-  }
-  return {fp: path.join(__dirname, fp), encoding, contentType}
-}
+app.get('/get-album', async (req, res) => {
+  res.setHeader('Content-Type', 'application/zip');
+  res.setHeader('Content-Disposition', 'attachment; filename: album.zip');
 
-const sendAudio = async (audio, res) => {
-  console.log(audio.fp);
-  try {
-    const stat = await fs.stat(audio.fp)
+  const archive = archiver('zip', {
+    zlib: { level: 9 }
+  });
 
-    res.writeHead(200, {
-      'Content-Type': audio.contentType,
-      'Content-Length': stat.size
+  archive.pipe(res);
+
+  try{
+    const songs = await fs.readdir(
+      path.join(__dirname, 'albums', 'Better-Together')
+    );
+
+    songs.forEach(song => {
+      archive.file(
+        path.join(__dirname, 'albums', 'Better-Together', song), { name: song }
+      );
     });
-    const readStream = foo.createReadStream(audio.fp);
-    readStream.pipe(res);
+    archive.finalize();
   } catch (err) {
-    console.error(err);
-    res.writeHead(500);
-    res.end('Error reading audio file');
-  }
-}
+    console.log('Here')
 
-const server = http.createServer(async (req, res) => {
+    res.status(500).json({ msg: 'Failed to get album' })
+  }
 
-  const file = getPayloadInfo(req);
-  if (file.encoding === null) {
-    sendAudio(file, res);
-  }
-  else {
-    try {
-      const payload = await fs.readFile(file.fp, file.encoding);
-      res.writeHead(200, {'Content-Type': file.contentType});
-      res.end(payload);
-    } catch (err) {
-      console.error(err);
-      res.writeHead(500);  // will not work if error occurs after line 9
-      res.end('Server Error');
-    }
-  }
   
-});
 
-server.listen(port, () => {
-  console.log(`Server listening on ${port}`);
-});
+}) 
 
-
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`)
+})

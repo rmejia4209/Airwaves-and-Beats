@@ -1,12 +1,18 @@
 
+# OS Files
+*.DS_Store
+
 #IDE
 *.vscode/
 
 # Environment
+.env
 *node_modules/
 
 # Audio files
+*/albums
 *.mp3
 
 # Not Ready
 *README.md
+*trash.mjs
