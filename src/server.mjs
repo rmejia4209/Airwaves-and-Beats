@@ -1,19 +1,26 @@
-import { port, publicPath, __dirname } from './config.mjs';
+import { port, publicPath, secret, sessionFolder } from './config.mjs';
 import getAlbum from './utils.mjs';
 import express from 'express';
 import session from 'express-session';
-import path from 'path';
+import FileStore from 'session-file-store';
 import archiver from 'archiver';
 
+
+const store = FileStore(session);
 const app = express();
 app.use(express.static(publicPath))
 
 
 app.use(session({
-  secret: 'Roxie',
+  store: new store({
+    path: sessionFolder,
+    ttl: 60*60*2,  // 2 hours
+    reapInterval: 60*60*2,  // session deletion interval
+  }),
+  secret: secret,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: { secure: false, maxAge: 2*60*60*1000, rolling: true}
 }))
 
 
@@ -37,9 +44,7 @@ const sendAlbum = async (req, res, next) => {
 
   try {
     const songs = await getAlbum(req.session.played);
-    songs.forEach(song => {
-      archive.file(song, { name: path.basename(song) });
-    });
+    songs.forEach(song => archive.file(song.path, { name: song.name }));
     archive.finalize();
   } catch (err) {
     res.status(500).json({ msg: 'Failed to get album' });

@@ -9,6 +9,10 @@
 .env
 *node_modules/
 
+# Sessions
+*sessions/
+
+
 # Audio files
 */albums
 *.mp3

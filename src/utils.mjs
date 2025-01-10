@@ -29,7 +29,9 @@ const getAlbum = async (excluded) => {
     const album = albums[randomIndex]
     excluded.push(album)
     const songs = await fs.readdir(path.join(__dirname, 'albums', album));
-    return songs.map(song => path.join(__dirname, 'albums', album, song));
+    return songs.map(song => {
+      return {path: path.join(__dirname, 'albums', album, song), name: song}
+    });
   } catch (error) {
     console.error(`${error}`);
     throw error
