@@ -39,3 +39,19 @@ h1 {
 p {
     font-size: 64px;
 }
+
+.playback-bttn-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+.playback-bttn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#pause {
+    display: none;
+}

@@ -39,15 +39,28 @@ function queueAlbum(queue) {
     .catch(error => alert(error.msg))
 } 
 
-function connectButton(queue) {
-  document.getElementById('my').addEventListener('click', () => {
-    console.log(queue);
+function connectButtons() {
+  const playButton = document.getElementById('play');
+  const pauseButton = document.getElementById('pause');
+  const lofiPlayer = document.getElementById('lofi-player');
+  // TODO: add air traffic radio
+
+  playButton.addEventListener('click', () => {
+    lofiPlayer.play();
+    playButton.style.display = 'none';
+    pauseButton.style.display ='block';
+  })
+
+  pauseButton.addEventListener('click', () => {
+    lofiPlayer.pause();
+    pauseButton.style.display = 'none';
+    playButton.style.display = 'block';
   })
 }
 
 const queue = []
 queueAlbum(queue).then(() => loadSong(queue))
 document.addEventListener('DOMContentLoaded', () => {
-  connectButton(queue);
+  connectButtons();
   initLofiAudio(queue);
 })
