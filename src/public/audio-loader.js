@@ -58,9 +58,52 @@ function connectButtons() {
   })
 }
 
+
+
+
+function adjustVolume(e, volumeButton, slider) {
+  let adjusting = true;
+  let startX = e.clientX;
+  let start = parseFloat(window.getComputedStyle(volumeButton).left)
+  
+  const onMouseMove = (e) => {
+    if (!adjusting) return;
+    
+    const shift = e.clientX - startX;
+    const sliderWidth = slider.offsetWidth;
+    const newPos = Math.max(
+      0, Math.min(100,(start + shift) / sliderWidth * 100)
+    );
+    volumeButton.style.left = `${newPos}%`;
+  }
+
+  const onMouseUp = () => {
+    adjusting = false;
+    // clean up event listeners
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+
+}
+
+function initVolumeSliders() {
+  const volumeButton = document.getElementById('foo')
+  const slider = volumeButton.parentElement;
+  
+  volumeButton.addEventListener('mousedown', (e) => {
+    adjustVolume(e, volumeButton, slider);
+  }
+  )
+}
+
+
 const queue = []
 queueAlbum(queue).then(() => loadSong(queue))
 document.addEventListener('DOMContentLoaded', () => {
   connectButtons();
+  initVolumeSliders();
   initLofiAudio(queue);
 })
