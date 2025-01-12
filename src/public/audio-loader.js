@@ -46,6 +46,5 @@ function initLofiAudio(queue) {
 const queue = []
 queueAlbum(queue).then(() => loadSong(queue))
 document.addEventListener('DOMContentLoaded', () => {
-  connectButtons();
   initLofiAudio(queue);
 })
