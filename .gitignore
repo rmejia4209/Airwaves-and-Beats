@@ -16,6 +16,7 @@
 # Audio files
 */albums
 *.mp3
+*.jpg
 
 # Not Ready
 *README.md
