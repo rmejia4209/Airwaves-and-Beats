@@ -11,10 +11,9 @@ const generateRandomNumber = (maximum) => {
 const getAlbums = async (excluded) => {
   try{
     const albums = await fs.readdir(path.join(__dirname, 'albums'));
-    console.log(albums.length);
-    console.log(excluded.length);
+    albums.shift();
 
-    if (excluded.length === albums.length - 1) {
+    if (excluded.length === albums.length) {
       excluded.length = 0;
     }
     return [...albums].filter(

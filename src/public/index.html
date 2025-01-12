@@ -10,28 +10,32 @@
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="audio-loader.js"></script>
+  <script src="dynamic-volume-control.js"></script>
+
 
   <main>
-    
-    
+    <audio id="music-player"></audio>
+    <audio id="atc-player"></audio>
     <div class="volume-adjustment">
       <div class="slider-wrapper">
-        <input class="slider" type="range" min="0" max="100" value="50">
         <p>Music</p>
+        <div id='music-slider-input' class="slider-input">
+          <div id='music-slider-input-line' class="slider-input-line"></div>
+          <div id='music-slider-input-line-solid' class="slider-input-line-solid" style="width: 50%;"></div>
+          <div id='music-volume-button' class="slider-input-btn" style="left: 50%;"></div>
+        </div>
       </div>
       <div class="slider-wrapper">
-        <input class="slider" type="range" min="0" max="100" value="50">
         <p>ATC Volume</p>
-      </div>
-      <div class="slider-input">
-        <div class="slider-input-line"></div>
-        <div class="slider-input-line-solid" style="width: 35%;"></div>
-        <div id='foo' class="slider-input-btn" style="left: 35%;"></div>
+        <div id='atc-slider-input' class="slider-input">
+          <div id='atc-slider-input-line' class="slider-input-line"></div>
+          <div id='atc-slider-input-line-solid' class="slider-input-line-solid" style="width: 50%;"></div>
+          <div id='atc-volume-button' class="slider-input-btn" style="left: 50%;"></div>
+        </div>
       </div>
     </div>
     <div class="audio-player">
-      <audio id="lofi-player"></audio>
-      <audio id="air-traffic-control"></audio>
+      
     <div class="sidebar">
       <div class="sidebar-volume">
         <button id="settings">

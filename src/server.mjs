@@ -28,7 +28,6 @@ const createSession = (req, res, next) => {
   if (!req.session.played) {
     req.session.played = []
   }
-  console.log(req.session.played);
   next();
 }
 

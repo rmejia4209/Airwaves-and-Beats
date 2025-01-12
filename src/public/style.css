@@ -52,27 +52,25 @@ main {
     height: 60px;
 }
 
+.slider-input-line, .slider-input-line-solid {
+    background: #480404;
+    height: 2px;
+    border-radius: 5px;
+    border: 2px solid #480404;
+
+}
+
 .slider-input-line {
     opacity: 0.2;
     position: absolute;
-    width: 100%;
-    border: 3px solid #480404;
-    border-radius: 5px;
+    width: 100%;   
 }
 
-
-.slider-input .slider-input-line-solid {
-    background: #480404;
-    border: 1px solid #480404;
-    height: 2px;
-    border-radius: 5px;
-}
-
-
-.slider-input .slider-input-btn {
+.slider-input-btn {
+    cursor: pointer;
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: #480404;
     transform: translate(-50%);
