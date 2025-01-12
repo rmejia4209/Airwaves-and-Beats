@@ -10,6 +10,8 @@ button {
     background: transparent;
     border: none;
     box-shadow: none;
+    padding: 10pt;
+    border-radius: 5pt;
     font-size: large;
     font-weight: 400;
 }
@@ -76,7 +78,7 @@ main {
 }
 
 .sidebar.back-button {
-    padding: 10pt;
+    padding: 15pt;
 }
 
 
