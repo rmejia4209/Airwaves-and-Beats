@@ -1,5 +1,9 @@
 
-
+html {
+    font-size: 1em;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 
 main {
@@ -31,7 +35,7 @@ main {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: grayscale(100%) blur(24px);
+    filter: brightness(30%) grayscale(100%) blur(24px);
 }
 
 .background-color {
@@ -58,26 +62,14 @@ main {
 
 /*Volume*/
 .volume-adjustment {
-    z-index: 10;
     width: 50%;
-    
+    max-width: 400px;
     text-align: center;
 }
 
-.slider-wrapper {
-    width: stretch;
+.volume-adjustment h3 {
+    color: white;
 }
-
-.slider {
-    width: 100%;
-}
-
-.volume-adjustment > input {
-    width: 100%;
-}
-
-
-/* Experiment */
 
 .slider-input {
     display: flex;
@@ -87,27 +79,29 @@ main {
 }
 
 .slider-input-line, .slider-input-line-solid {
-    background: #480404;
-    height: 2px;
+    background: #fff;
+    height: 3px;
     border-radius: 5px;
-    border: 2px solid #480404;
-
 }
 
 .slider-input-line {
-    opacity: 0.2;
     position: absolute;
-    width: 100%;   
+    width: 100%;
+    opacity: 0.2;  
 }
 
 .slider-input-btn {
     cursor: pointer;
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: #480404;
+    background: #fff;
     transform: translate(-50%);
+}
+
+.slider-input-btn:hover {
+    box-shadow: 0 0 10px #fff;
 }
 
 
