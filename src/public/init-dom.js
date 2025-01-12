@@ -73,11 +73,13 @@ function initVolumeSliders(audio) {
 }
 
 function initSidebar() {
-
+  const playBackView = document.getElementById('playback-view');
+  const volumeSettingButton = document.getElementById('sidebar-volume');
   const volumeSettings = document.getElementById('volume-adjustment-view');
 
-  volumeSettings.addEventListener('click', () => {
-
+  volumeSettingButton.addEventListener('click', () => {
+    volumeSettings.style.display = 'block';
+    playBackView.style.display = 'none';
   });
 }
 
@@ -85,6 +87,7 @@ function initSidebar() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initPlaybackButtons();
+  initSidebar();
   initVolumeSliders('atc');
   initVolumeSliders('music');
 })
