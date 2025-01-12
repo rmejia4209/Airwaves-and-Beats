@@ -1,5 +1,26 @@
 
 
+function initPlaybackButtons() {
+  const playButton = document.getElementById('play');
+  const pauseButton = document.getElementById('pause');
+  const lofiPlayer = document.getElementById('music-player');
+  const background = document.getElementById('background-color');
+  // TODO: add air traffic radio
+
+  playButton.addEventListener('click', () => {
+    lofiPlayer.play();
+    playButton.style.display = 'none';
+    pauseButton.style.display ='block';
+    background.style.opacity = 1;
+  })
+
+  pauseButton.addEventListener('click', () => {
+    lofiPlayer.pause();
+    pauseButton.style.display = 'none';
+    playButton.style.display = 'block';
+    background.style.opacity = 0;
+  })
+}
 
 function adjustVolume(e, audioPlayer, volumeButton, sliderFill, slider) {
   let adjusting = true;
@@ -51,8 +72,19 @@ function initVolumeSliders(audio) {
   )
 }
 
+function initSidebar() {
+
+  const volumeSettings = document.getElementById('volume-adjustment-view');
+
+  volumeSettings.addEventListener('click', () => {
+
+  });
+}
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPlaybackButtons();
   initVolumeSliders('atc');
   initVolumeSliders('music');
 })

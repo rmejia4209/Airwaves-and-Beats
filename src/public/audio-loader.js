@@ -5,19 +5,6 @@ function loadSong(queue) {
 }
 
 
-function initLofiAudio(queue) {
-  const lofiPlayer = document.getElementById('music-player');
-  lofiPlayer.addEventListener('ended', () => {
-    URL.revokeObjectURL(lofiPlayer.src);
-    loadSong(queue);
-    lofiPlayer.play();
-    if (queue.length < 2) {
-      queueAlbum(queue);
-    }
-  })  
-}
-
-
 function queueAlbum(queue) {
   return fetch('/get-album')
     .then(response => response.blob())
@@ -37,27 +24,23 @@ function queueAlbum(queue) {
     .catch(error => alert(error))
 } 
 
-function connectButtons() {
-  const playButton = document.getElementById('play');
-  const pauseButton = document.getElementById('pause');
+
+function initLofiAudio(queue) {
   const lofiPlayer = document.getElementById('music-player');
-  const background = document.getElementById('background-color');
-  // TODO: add air traffic radio
-
-  playButton.addEventListener('click', () => {
+  lofiPlayer.addEventListener('ended', () => {
+    URL.revokeObjectURL(lofiPlayer.src);
+    loadSong(queue);
     lofiPlayer.play();
-    playButton.style.display = 'none';
-    pauseButton.style.display ='block';
-    background.style.opacity = 1;
-  })
-
-  pauseButton.addEventListener('click', () => {
-    lofiPlayer.pause();
-    pauseButton.style.display = 'none';
-    playButton.style.display = 'block';
-    background.style.opacity = 0;
-  })
+    if (queue.length < 2) {
+      queueAlbum(queue);
+    }
+  })  
 }
+
+
+
+
+
 
 
 const queue = []
