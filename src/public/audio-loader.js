@@ -37,12 +37,6 @@ function initLofiAudio(queue) {
   })  
 }
 
-
-
-
-
-
-
 const queue = []
 queueAlbum(queue).then(() => loadSong(queue))
 document.addEventListener('DOMContentLoaded', () => {

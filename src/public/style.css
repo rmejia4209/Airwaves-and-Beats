@@ -1,23 +1,13 @@
 
 html {
-    font-size: 1em;
+    
     color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-button {
-    color: #fff;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 10pt;
-    border-radius: 10pt;
-    font-size: large;
-    font-weight: 400;
-}
-
-button:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+body {
+    font-size: 16pt;
+    margin: 0pt;
 }
 
 main {
@@ -32,10 +22,33 @@ main {
     align-items: center;
 }
 
+button {
+    color: #fff;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 10pt;
+    border-radius: 10pt;
+    font-size: large;
+    font-weight: 400;
+    margin: 5pt;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+span * {
+    display: inline;
+    vertical-align: middle;
+    
+}
+
 .background {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: -3;
     overflow: hidden;
 }
 
@@ -125,20 +138,29 @@ main {
 
 
 
+.playback-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-/* Playback */
-.playback-bttn-container {
-    position: relative;
-    width: 50px;
-    height: 50px;
+.playback-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 20rem;
+    height: 10rem;
+    border-radius: 50pt;
 }
-.playback-bttn {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+
+.playback-info path {
+    fill: black;
 }
-#pause {
-    display: none;
+
+.playback-info > * {
+    margin: 5pt;
 }
