@@ -76,10 +76,17 @@ function initSidebar() {
   const playBackView = document.getElementById('playback-view');
   const volumeSettingButton = document.getElementById('sidebar-volume');
   const volumeSettings = document.getElementById('volume-adjustment-view');
-
+  const volumeSettingsBack = document.getElementById(
+    'volume-adjustment-view-back'
+  );
   volumeSettingButton.addEventListener('click', () => {
     volumeSettings.style.display = 'block';
     playBackView.style.display = 'none';
+  });
+
+  volumeSettingsBack.addEventListener('click', () => {
+    volumeSettings.style.display = 'none';
+    playBackView.style.display = 'block';  
   });
 }
 

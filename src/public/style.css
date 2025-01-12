@@ -10,6 +10,8 @@ button {
     background: transparent;
     border: none;
     box-shadow: none;
+    font-size: large;
+    font-weight: 400;
 }
 
 button:hover {
@@ -71,6 +73,10 @@ main {
 
 .sidebar button {
     margin: 5px;
+}
+
+.sidebar.back-button {
+    padding: 10pt;
 }
 
 
