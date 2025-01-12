@@ -1,7 +1,11 @@
 
 
 function loadSong(queue) {
-  document.getElementById('music-player').src = queue.shift();
+  const song = queue.shift();
+  document.getElementById('music-player').src = song.url;
+  document.getElementById('song').textContent = song.name;
+  document.getElementById('album').textContent = song.album;
+  document.getElementById('artist').textContent = song.artist
 }
 
 
@@ -15,8 +19,15 @@ function queueAlbum(queue) {
     .then(zip => {
       const songNames = Object.keys(zip.files);
       const promises = songNames.map(songName => {
+        const songDetails = songName.split('-')
         return zip.files[songName].async('blob').then(blob => {
-          queue.push(URL.createObjectURL(blob));
+          console.log(songDetails)
+          queue.push({
+            url: URL.createObjectURL(blob),
+            name: songDetails[1],
+            album: songDetails[2],
+            artist: songDetails[3].replace('.mp3', '')
+          });
         });
       });
       return Promise.all(promises);

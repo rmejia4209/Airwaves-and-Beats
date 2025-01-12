@@ -164,3 +164,18 @@ span * {
 .playback-info > * {
     margin: 5pt;
 }
+
+.song-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.song-details * {
+    font-size: clamp(6pt, 16pt, 16pt);
+    margin: 0;
+}
+
+.album-artist {
+    color: gray;
+}
