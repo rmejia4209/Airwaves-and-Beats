@@ -25,7 +25,7 @@ main {
 
 button {
     color: #fff;
-    background: wheat;
+    background: transparent;
     border: none;
     box-shadow: none;
     border-radius: 15px;
@@ -88,9 +88,7 @@ span * {
     flex-direction: column;
 }
 
-.sidebar.back-button {
-    padding: 2rem;
-}
+
 
 
 /*Volume Adjustment*/
@@ -134,7 +132,7 @@ span * {
     box-shadow: 0 0 10px #fff;
 }
 
-
+/*Playback view*/
 .playback-wrapper {
     display: flex;
     flex-direction: column;
@@ -148,9 +146,9 @@ span * {
     justify-content: center;
     color: black;
     background-color: rgba(255, 255, 255, 1);
-    height: 30vh;
+    height: 25vh;
     width: 50vw;
-    max-width: 400px;
+    max-width: 500px;
     border-radius: 20px;
 }
 @media (max-width: 767px) {
@@ -180,4 +178,8 @@ span * {
 
 .album-artist {
     color: gray;
+}
+
+.playback-bttn {
+    padding: 0;
 }
