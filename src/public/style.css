@@ -199,33 +199,44 @@ span * {
  *
  *
  */
-.volume-adjustment {
+.settings-view {
     display: none;
     width: 75%;
     max-width: 400px;
     text-align: center;
 }
 
-.slider-input {
+.ratio-wrapper {
     display: flex;
     align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.ratio-wrapper > h3 {
+    margin: 0;
+}
+.slider {
+    flex-grow: 1;
     position: relative;
+    display: flex;
+    align-items: center;
     height: 60px;
 }
 
-.slider-input-line, .slider-input-line-solid {
+.line, .line-solid {
+    position: absolute;
     background: #fff;
     height: 3px;
     border-radius: 10px;
 }
 
-.slider-input-line {
-    position: absolute;
+.line {
     width: 100%;
     opacity: 0.2;
 }
 
-.slider-input-btn {
+.line-button {
     cursor: pointer;
     position: absolute;
     width: 40px;
@@ -235,7 +246,7 @@ span * {
     transform: translate(-50%);
 }
 
-.slider-input-btn:hover {
+.line-button:hover {
     box-shadow: 0 0 10px #fff;
 }
 /*

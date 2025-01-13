@@ -21,7 +21,6 @@ function queueAlbum(queue) {
       const promises = songNames.map(songName => {
         const songDetails = songName.split('-')
         return zip.files[songName].async('blob').then(blob => {
-          console.log(songDetails)
           queue.push({
             url: URL.createObjectURL(blob),
             name: songDetails[1],
