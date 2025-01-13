@@ -3,7 +3,7 @@ html {
     color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 100;
 }
 
 body {
@@ -36,6 +36,47 @@ button {
 button:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
+
+input {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    height: 80px;
+    width: 400px;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+input:focus-visible {
+    outline: none;
+}
+
+
+select {
+    width: 400px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem;
+    appearance: none; /* Removes the default arrow */
+    -webkit-appearance: none; /* Safari */
+    -moz-appearance: none; /*  Firefox */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"%3E%3Cpath d="M0 0l5 5 5-5" stroke="%23fff" stroke-width="1" fill="none" /%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 30px;
+}
+
+@media (max-width: 767px) {
+    select {
+        width: 300px;
+    }
+}
+
 
 span * {
     display: inline;
@@ -79,8 +120,14 @@ span * {
     background: linear-gradient(rgba(240, 80, 127, .5), rgba(115, 231, 211, .2));
 }
 
-/*Side bar*/
-.sidebar {
+/*
+ *
+ *
+ * Sidebar
+ *
+ *
+ */
+ .sidebar {
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -88,51 +135,13 @@ span * {
     flex-direction: column;
 }
 
-
-
-
-/*Volume Adjustment*/
-.volume-adjustment {
-    display: none;
-    width: 75%;
-    max-width: 400px;
-    text-align: center;
-}
-
-.slider-input {
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: 60px;
-}
-
-.slider-input-line, .slider-input-line-solid {
-    background: #fff;
-    height: 3px;
-    border-radius: 10px;
-}
-
-.slider-input-line {
-    position: absolute;
-    width: 100%;
-    opacity: 0.2;
-}
-
-.slider-input-btn {
-    cursor: pointer;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #fff;
-    transform: translate(-50%);
-}
-
-.slider-input-btn:hover {
-    box-shadow: 0 0 10px #fff;
-}
-
-/*Playback view*/
+/*
+ *
+ *
+ * Playback view
+ *
+ *
+ */
 .playback-wrapper {
     display: flex;
     flex-direction: column;
@@ -182,4 +191,60 @@ span * {
 
 .playback-bttn {
     padding: 0;
+}
+/*
+ *
+ *
+ Volume Adjustment
+ *
+ *
+ */
+.volume-adjustment {
+    display: none;
+    width: 75%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.slider-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 60px;
+}
+
+.slider-input-line, .slider-input-line-solid {
+    background: #fff;
+    height: 3px;
+    border-radius: 10px;
+}
+
+.slider-input-line {
+    position: absolute;
+    width: 100%;
+    opacity: 0.2;
+}
+
+.slider-input-btn {
+    cursor: pointer;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    transform: translate(-50%);
+}
+
+.slider-input-btn:hover {
+    box-shadow: 0 0 10px #fff;
+}
+/*
+ *
+ *
+ * Airport Selection View
+ *
+ *
+ */
+.airport-selection {
+    display: none;
 }

@@ -72,21 +72,46 @@ function initVolumeSliders(audio) {
 }
 
 function initSidebar() {
+  // Playback view & buttons
   const playBackView = document.getElementById('playback-view');
   const volumeSettingButton = document.getElementById('sidebar-volume');
+  const airportSelectionButton = document.getElementById('sidebar-airport');
+  
+  // Volume adjustment view & buttons
   const volumeSettings = document.getElementById('volume-adjustment-view');
   const volumeSettingsBack = document.getElementById(
     'volume-adjustment-view-back'
   );
+
+  // Airport selection view & buttons
+  const airportSelection = document.getElementById('airport-selection-view');
+  const airportSelectionBack = document.getElementById(
+    'airport-selection-view-back'
+  );
+
   volumeSettingButton.addEventListener('click', () => {
     volumeSettings.style.display = 'block';
     playBackView.style.display = 'none';
+  });
+
+  airportSelectionButton.addEventListener('click', () => {
+    airportSelection.style.display = 'block';
+    playBackView.style.display = 'none';
+  })
+
+  airportSelectionBack.addEventListener('click', () => {
+    airportSelection.style.display = 'none';
+    playBackView.style.display = 'block';  
   });
 
   volumeSettingsBack.addEventListener('click', () => {
     volumeSettings.style.display = 'none';
     playBackView.style.display = 'block';  
   });
+
+
+
+
 }
 
 
