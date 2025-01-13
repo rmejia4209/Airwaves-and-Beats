@@ -68,8 +68,7 @@ function initVolumeSliders(audio) {
   
   volumeButton.addEventListener('mousedown', (e) => {
     adjustVolume(e, audioPlayer, volumeButton, sliderFill, slider);
-  }
-  )
+  });
 }
 
 function initSidebar() {

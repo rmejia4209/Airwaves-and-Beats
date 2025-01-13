@@ -1,21 +1,22 @@
 
 html {
-    
     color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 body {
-    font-size: 16pt;
-    margin: 0pt;
+    margin: 0;
+    padding: 0;
 }
 
 main {
-    width: 100%;
-    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,14 +25,12 @@ main {
 
 button {
     color: #fff;
-    background: transparent;
+    background: wheat;
     border: none;
     box-shadow: none;
-    padding: 10pt;
-    border-radius: 10pt;
-    font-size: large;
-    font-weight: 400;
-    margin: 5pt;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 0.5rem;
 }
 
 button:hover {
@@ -41,7 +40,12 @@ button:hover {
 span * {
     display: inline;
     vertical-align: middle;
-    
+}
+
+@media (pointer: coarse) {
+    .hide-on-touch {
+        display: none;
+    }
 }
 
 .background {
@@ -63,7 +67,7 @@ span * {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: brightness(30%) grayscale(100%) blur(24px);
+    filter: brightness(60%) grayscale(100%) blur(24px);
 }
 
 .background-color {
@@ -74,31 +78,25 @@ span * {
     transition: opacity 2s ease;
     background: linear-gradient(rgba(240, 80, 127, .5), rgba(115, 231, 211, .2));
 }
-    
-
 
 /*Side bar*/
 .sidebar {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 1rem;
+    right: 1rem;
     display: flex;
     flex-direction: column;
 }
 
-.sidebar button {
-    margin: 5px;
-}
-
 .sidebar.back-button {
-    padding: 15pt;
+    padding: 2rem;
 }
 
 
-/*Volume*/
+/*Volume Adjustment*/
 .volume-adjustment {
     display: none;
-    width: 50%;
+    width: 75%;
     max-width: 400px;
     text-align: center;
 }
@@ -113,13 +111,13 @@ span * {
 .slider-input-line, .slider-input-line-solid {
     background: #fff;
     height: 3px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .slider-input-line {
     position: absolute;
     width: 100%;
-    opacity: 0.2;  
+    opacity: 0.2;
 }
 
 .slider-input-btn {
@@ -137,7 +135,6 @@ span * {
 }
 
 
-
 .playback-wrapper {
     display: flex;
     flex-direction: column;
@@ -149,12 +146,17 @@ span * {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     color: black;
-    background-color: rgba(255, 255, 255, 0.6);
-    width: 20rem;
-    height: 10rem;
-    border-radius: 50pt;
+    background-color: rgba(255, 255, 255, 1);
+    height: 30vh;
+    width: 50vw;
+    max-width: 400px;
+    border-radius: 20px;
+}
+@media (max-width: 767px) {
+    .playback-info {
+        width: 80vw;
+    }
 }
 
 .playback-info path {
@@ -162,7 +164,7 @@ span * {
 }
 
 .playback-info > * {
-    margin: 5pt;
+    margin: 0.5rem;
 }
 
 .song-details {
@@ -172,7 +174,7 @@ span * {
 }
 
 .song-details * {
-    font-size: clamp(6pt, 16pt, 16pt);
+    font-size: clamp(10pt, 18pt, 24pt);
     margin: 0;
 }
 
