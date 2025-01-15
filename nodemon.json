@@ -1,0 +1,7 @@
+{
+    "exec": "node --no-deprecation",
+    "watch": ["src"],
+    "ignore": ["src/sessions", "src/albums", "src/public", "node_modules"],
+    "ext": "mjs,json"
+  }
+  
