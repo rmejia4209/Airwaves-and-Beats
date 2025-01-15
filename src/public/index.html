@@ -15,7 +15,7 @@
   <script src="audio-loader.js"></script>
   <main>
     <audio id="music-player"></audio>
-    <audio id="atc-player"></audio>
+    <audio id="atc-player" crossorigin="anonymous" preload="auto" type="audio/mp3"></audio>
     <div class="background">
       <div class="background-image"></div>
       <div id="background-color" class="background-color" style="opacity: 0;"></div>
@@ -28,9 +28,6 @@
         </button>
       </div>
       <select id="airport-selection-dropdown" >
-        <option value="3" selected>Thing</option>
-        <option>Thing</option>
-        <option>Thing</option>
       </select>
         <div class="hide-on-touch ratio-wrapper ">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="48" height="48" viewBox="0 0 24 24">
@@ -68,7 +65,7 @@
                 <path d="M16.8011 16.3487C16.6411 16.3487 16.4911 16.2987 16.3511 16.1987C16.0211 15.9487 15.9511 15.4787 16.2011 15.1487C16.8911 14.2387 17.2511 13.1487 17.2511 11.9987C17.2511 10.8487 16.8911 9.75871 16.2011 8.84871C15.9511 8.51871 16.0211 8.04871 16.3511 7.79871C16.6811 7.54871 17.1511 7.61871 17.4011 7.94871C18.2811 9.12871 18.7511 10.5287 18.7511 11.9987C18.7511 13.4687 18.2811 14.8787 17.4011 16.0487C17.2511 16.2487 17.0311 16.3487 16.8011 16.3487Z" fill="#292D32"/>
                 <path d="M7.2 16.3487C6.97 16.3487 6.75 16.2487 6.6 16.0487C5.72 14.8787 5.25 13.4687 5.25 11.9987C5.25 10.5287 5.72 9.11871 6.6 7.94871C6.85 7.61871 7.32 7.54871 7.65 7.79871C7.98 8.04871 8.05 8.51871 7.8 8.84871C7.11 9.75871 6.75 10.8487 6.75 11.9987C6.75 13.1487 7.11 14.2387 7.8 15.1487C8.05 15.4787 7.98 15.9487 7.65 16.1987C7.52 16.2987 7.36 16.3487 7.2 16.3487Z" fill="#292D32"/>
               </svg>
-              <h2>ORD</h2>
+              <h2 id="airport-display"></h2>
           </span>
           <div class="song-details">
             <p id="song"></p>

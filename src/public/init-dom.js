@@ -4,11 +4,12 @@ function initPlaybackButtons() {
   const playButton = document.getElementById('play');
   const pauseButton = document.getElementById('pause');
   const lofiPlayer = document.getElementById('music-player');
+  const atcPlayer = document.getElementById('atc-player')
   const background = document.getElementById('background-color');
-  // TODO: add air traffic radio
 
   playButton.addEventListener('click', () => {
     lofiPlayer.play();
+    atcPlayer.play();
     playButton.style.display = 'none';
     pauseButton.style.display ='block';
     background.style.opacity = 1;
@@ -16,6 +17,7 @@ function initPlaybackButtons() {
 
   pauseButton.addEventListener('click', () => {
     lofiPlayer.pause();
+    atcPlayer.pause();
     pauseButton.style.display = 'none';
     playButton.style.display = 'block';
     background.style.opacity = 0;
