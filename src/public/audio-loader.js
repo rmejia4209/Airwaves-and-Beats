@@ -51,7 +51,6 @@ function changeAirport(code) {
   const atcPlayer = document.getElementById('atc-player');
 
   airport = code;
-  document.getElementById('airport-display').textContent = code
 
   if (!atcPlayer.paused) {
     atcPlayer.src = `/select-airport/${airport}`
@@ -77,7 +76,6 @@ function initATCAudio() {
 
 
 function initDropDown() {
-  const currAirport = document.getElementById('airport-display');
   const dropDown = document.getElementById('airport-selection-dropdown');
   let selected = false;
   fetch('/select-airport/all')
@@ -88,7 +86,6 @@ function initDropDown() {
         option.text = code;
         option.value = code;
         if (!selected) {
-          currAirport.textContent = code
           airport = code;
           option.selected = true;
           selected = true;
