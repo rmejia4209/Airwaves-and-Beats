@@ -11,5 +11,11 @@ export const port = process.env.PORT ? process.env.PORT : 3030;
 export const sourceURL = process.env.ATC_FEED_URL;
 export const atcLinks = {
     KJFK: process.env.KJFK,
-    KORD: process.env.KORD,
+    RJTT: process.env.KORD,
+    KBOS: process.env.KBOS,
+    KEWR: process.env.KEWR,
+    MROC: process.env.MROC,
+    KSFO: process.env.KSFO,
+    KMWD: process.env.KMWD,
+    KATL: process.env.KATL,
   }
